@@ -9,11 +9,18 @@ const { getPagination } = require("../../services/query");
 
 async function httpGetAllLaunches(req, res) {
   const { skip, limit } = getPagination(req.query);
+  try {
+    const launches = await getAllLaunches(skip, limit);
 
-  const launches = await getAllLaunches(skip, limit);
-
-  return res.status(200).json(launches);
+    return res.status(200).json(launches);
+  } catch (error) {
+    console.error(err);
+    return res.status(500).json({
+      error: "Failed to fetch launches",
+    });
+  }
 }
+
 async function httpAddNewLaunch(req, res) {
   let launch = req.body;
   if (
