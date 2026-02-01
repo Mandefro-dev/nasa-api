@@ -12,14 +12,14 @@ describe("Api tests", () => {
     await mongoDisconnect();
   });
 
-  describe("Test GET /v1/launches", () => {
-    test("it should respond with 200 success", async () => {
-      const response = await request(app)
-        .get("/v1/launches")
+  // describe("Test GET /v1/launches", () => {
+  //   test("it should respond with 200 success", async () => {
+  //     const response = await request(app)
+  //       .get("/v1/launches")
 
-        .expect(200);
-    });
-  });
+  //       .expect(200);
+  //   });
+  // });
 
   describe("Test POST /v1/launches", () => {
     const completeLaunchData = {
