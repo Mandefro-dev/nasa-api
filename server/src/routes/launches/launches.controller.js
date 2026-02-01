@@ -15,9 +15,7 @@ async function httpGetAllLaunches(req, res) {
     return res.status(200).json(launches);
   } catch (error) {
     console.error(err);
-    return res.status(500).json({
-      error: "Failed to fetch launches",
-    });
+    return res.status(500).json(error.message);
   }
 }
 
